@@ -63,15 +63,16 @@ class Image < ActiveRecord::Base
 
 
   # Only keep 5 most recent images
+  # This only works with unique filenames...
 
-  after_update :discard_old_images,
-    if: :image_processing_changed?
+#   after_update :discard_old_images,
+#     if: :image_processing_changed?
 
-protected
+# protected
 
-  def discard_old_images
-    owner.images.offset(5).destroy_all
-  end
+#   def discard_old_images
+#     owner.images.offset(5).destroy_all
+#   end
 
 
 

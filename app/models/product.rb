@@ -1,7 +1,9 @@
 class Product < ActiveRecord::Base
-  include Image::Mountable
+  # Note: reboot sidekiq when we add this
+  # include Image::Mountable
 
-  # mount_uploader :image, ImageUploader
+  mount_uploader :image, ImageUploader
 
-  # process_in_background :image
+  process_in_background :image
 end
+

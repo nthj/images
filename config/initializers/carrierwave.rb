@@ -18,4 +18,42 @@ CarrierWave::Backgrounder.configure do |c|
 end
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class CarrierWave::Workers::ProcessAsset
+  alias perform_without_sleep perform
+  def perform *args
+    sleep 3
+    perform_without_sleep *args
+  end
+end
+
+
 require 'sidekiq/web'

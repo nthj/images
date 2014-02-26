@@ -15,7 +15,7 @@
   <p>
     <strong>Image:</strong> <br />
 
-    <%= image_tag @product.image.url(:thumb), :class => @product.image_processing? && :processing %>
+    <%= image_tag @product.image.url(:thumb), :class => @product.respond_to?(:image_processing?) && @product.image_processing? && :processing %>
   </p>
 
   <%= link_to 'Edit', edit_product_path(@product) %> |

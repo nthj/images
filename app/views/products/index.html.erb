@@ -6,7 +6,6 @@
       <th>Name</th>
       <th>Description</th>
       <th>Image</th>
-      <th>Pending?</th>
       <th></th>
       <th></th>
       <th></th>
@@ -18,8 +17,7 @@
       <tr>
         <td><%= product.name %></td>
         <td><%= product.description %></td>
-        <td><%= image_tag product.image.url(:thumb) %></td>
-        <td><%= product.image_processing? && 'x' || '' %></td>
+        <td><%= image_tag product.image.url(:thumb), :class => product.image_processing? && :processing %></td>
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
